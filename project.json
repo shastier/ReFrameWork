@@ -1,6 +1,6 @@
 {
-  "name": "UiPath_REFrameWork",
-  "description": "UiPath REFramework Template",
+  "name": "Calculate Client Security Hash",
+  "description": "Calculate Client Security Hash using UiPath REFramework Template",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.ComplexScenarios.Activities": "[1.1.3]",
