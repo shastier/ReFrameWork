@@ -199,7 +199,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Rule Exception, 3) System Error. &#xA;In the case of System Error, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="524,1103.33333333333" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Rule Exception, 3) System Error. &#xA;In the case of System Error, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231.333333333333,198.666666666667" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="477.333333333333,613.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
@@ -225,12 +225,8 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="TransactionItem" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -284,33 +280,15 @@
                       <TryCatch.Try>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemError">
-                              <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="SystemError" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessRuleException">
-                              <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="BusinessRuleException" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                              <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="Nothing" />
-                            </InArgument>
-                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RetryNumber" />
-                            </InOutArgument>
-                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                            </InOutArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField1" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionField2" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TransactionID" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                            <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemError">[SystemError]</InArgument>
+                            <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_BusinessRuleException">[BusinessRuleException]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[Nothing]</InArgument>
+                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[RetryNumber]</InOutArgument>
+                            <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[TransactionNumber]</InOutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField1">[TransactionField1]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionField2">[TransactionField2]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_TransactionID">[TransactionID]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </TryCatch.Try>
@@ -412,7 +390,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <If.Then>
-                                        <Assign DisplayName="Assign OrchestratorQueueName" sap:VirtualizedContainerService.HintSize="242,62" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                        <Assign DisplayName="Assign OrchestratorQueueName" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_20">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="x:Object">[Config("OrchestratorQueueName")]</OutArgument>
                                           </Assign.To>
@@ -422,7 +400,7 @@
                                         </Assign>
                                       </If.Then>
                                     </If>
-                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Kills all Windows processes representing applications used in this business process to assure that the execution starts in a clean state.&#xA;Since the applications are assumed to be already closed, CloseAllApplications is skipped and just KillAllProcess is invoked." DisplayName="Invoke KillAllProcesses workflow (first run)" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Kills all Windows processes representing applications used in this business process to assure that the execution starts in a clean state.&#xA;Since the applications are assumed to be already closed, CloseAllApplications is skipped and just KillAllProcess is invoked." DisplayName="Invoke KillAllProcesses workflow (first run)" sap:VirtualizedContainerService.HintSize="334,231.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                       </ui:InvokeWorkflowFile.Arguments>
@@ -449,7 +427,12 @@
                               </If>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="522,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_System1URL">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;System1URL&quot;).ToString" />
+                                  </InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -495,7 +478,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <State.Transitions>
-                        <Transition DisplayName="Successful initialization" sap:VirtualizedContainerService.HintSize="430,796" sap2010:WorkflowViewState.IdRef="Transition_2">
+                        <Transition DisplayName="Successful initialization" sap:VirtualizedContainerService.HintSize="451.333333333333,822.666666666667" sap2010:WorkflowViewState.IdRef="Transition_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
@@ -508,7 +491,7 @@
                             <x:Reference>__ReferenceID0</x:Reference>
                           </Transition.To>
                           <Transition.Action>
-                            <ui:Comment sap:VirtualizedContainerService.HintSize="314,74" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Default transition is picked up if there are no errors during initialization" />
+                            <ui:Comment sap:VirtualizedContainerService.HintSize="334,74.6666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Default transition is picked up if there are no errors during initialization" />
                           </Transition.Action>
                           <Transition.Condition>
                             <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
@@ -579,7 +562,9 @@
                           <Transition.Action>
                             <ui:LogMessage DisplayName="Log Message (initialization failure)" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Fatal" Message="[&quot;System error at initialization: &quot; + SystemError.Message + &quot; at Source: &quot; + SystemError.Source]" />
                           </Transition.Action>
-                          <Transition.Condition>[SystemError isNot Nothing]</Transition.Condition>
+                          <Transition.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError isNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                          </Transition.Condition>
                         </Transition>
                       </State.Transitions>
                     </State>
@@ -621,7 +606,9 @@
           <Transition.Action>
             <ui:LogMessage DisplayName="Log message (New transaction retrieved)" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[Config(&quot;LogMessage_GetTransactionData&quot;).ToString+TransactionNumber.ToString]" />
           </Transition.Action>
-          <Transition.Condition>[TransactionItem IsNot Nothing]</Transition.Condition>
+          <Transition.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="TransactionItem IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+          </Transition.Condition>
         </Transition>
         <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="429.6,969.6" sap2010:WorkflowViewState.IdRef="Transition_7">
           <sap:WorkflowViewStateService.ViewState>
@@ -639,7 +626,9 @@
           <Transition.Action>
             <ui:LogMessage DisplayName="Log message (No more transations available)" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Process finished due to no more transaction data&quot;]" />
           </Transition.Action>
-          <Transition.Condition>[TransactionItem Is Nothing]</Transition.Condition>
+          <Transition.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="TransactionItem Is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+          </Transition.Condition>
         </Transition>
       </State.Transitions>
     </State>
