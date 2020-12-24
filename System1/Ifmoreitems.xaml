@@ -4,7 +4,7 @@
     <x:Property Name="out_TransactionItem" Type="OutArgument(sd:DataRow)" />
     <x:Property Name="io_TransactionNumber" Type="InOutArgument(x:Int32)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>994,867</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1221,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -72,7 +72,6 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <If sap2010:Annotation.AnnotationText="Description: check if there are more items in WIList and assign it to output argument Transaction Item. Else, assign nothing to end the process." Condition="[io_TransactionNumber &lt; in_WIList.Count]" DisplayName="If more items in WIList" sap:VirtualizedContainerService.HintSize="797,662" sap2010:WorkflowViewState.IdRef="If_11">
@@ -120,7 +119,7 @@
       </Sequence>
     </If.Then>
     <If.Else>
-      <Sequence DisplayName="Orchestrator stop requested" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_23">
+      <Sequence DisplayName="Orchestrator stop requested" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_23">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,14 +127,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:LogMessage DisplayName="Log message (Stop process, no more data)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;Finished process due to no more data&quot;]" />
-        <Assign DisplayName="End Process (No more data)" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_22">
-          <Assign.To>
-            <OutArgument x:TypeArguments="sd:DataRow">[out_TransactionItem]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="sd:DataRow">[Nothing]</InArgument>
-          </Assign.Value>
-        </Assign>
       </Sequence>
     </If.Else>
   </If>
