@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>966,645</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1103,936</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,13 +66,14 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by different workflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction will be skipped. &#xA;If another kind of exception (ApplicationException) occurs, the current transaction can be retried. &#xD;&#xA;&#xD;&#xA;Precondition: System 1 Dashboard" DisplayName="Process" sap:VirtualizedContainerService.HintSize="406,619" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by different workflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction will be skipped. &#xA;If another kind of exception (ApplicationException) occurs, the current transaction can be retried. &#xA;&#xA;Precondition: System 1 Dashboard" DisplayName="Process" sap:VirtualizedContainerService.HintSize="406,771" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="message" />
+      <Variable x:TypeArguments="x:String" Name="hashResult" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -82,21 +83,25 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateTo_WIDetails workflow" sap:VirtualizedContainerService.HintSize="364,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="System1\System1_NavigateTo_WIDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_WorkItemID">
-          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(in_TransactionItem(&quot;WIID&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_System1URL">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;System1URL&quot;).ToString" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_WorkItemID">[Cint(in_TransactionItem("WIID"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_System1URL">[in_Config("System1URL").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_ExtractClientInformation workflow" sap:VirtualizedContainerService.HintSize="364,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="System1\System1_ExtractClientInformation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Msg">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="message" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Msg">[message]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SHA1Online_GetHashCode workflow" sap:VirtualizedContainerService.HintSize="364,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SHA1Online\SHA1Online_GetHashCode.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Msg">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="message" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HashCode">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="hashResult" />
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="364,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[message]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="364,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[hashResult]" />
   </Sequence>
 </Activity>

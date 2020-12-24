@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SHA1Online_GetHashCode" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SHA1Online_GetHashCode" this:SHA1Online_GetHashCode.in_Msg="hello" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Msg" Type="InArgument(x:String)" />
     <x:Property Name="out_HashCode" Type="OutArgument(x:String)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1103,1392</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>914,1286</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SHA1Online_GetHashCode_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -82,23 +82,22 @@
       <AssemblyReference>UiPath.Word</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Retrieve hash code from SH1 System and save it in an output parameter out_HashCode. Receive as input the string message.&#xD;&#xA;&#xD;&#xA;Pre-condition: SH1 Online System open.&#xD;&#xA;&#xD;&#xA;Post-condition: None" DisplayName="SHA1Online_GetHashCode" sap:VirtualizedContainerService.HintSize="476,1227" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Retrieve hash code from SH1 System and save it in an output parameter out_HashCode. Receive as input the string message.&#xA;&#xA;Pre-condition: SH1 Online System open.&#xA;&#xA;Post-condition: None" DisplayName="SHA1Online_GetHashCode" sap:VirtualizedContainerService.HintSize="476,1081" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  SHA1 online'" sap:VirtualizedContainerService.HintSize="434,1033" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d6fc9c2bce5998d06faf176a26d46ac6" Selector="&lt;html app='chrome.exe' title='SHA1 online' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'chrome.exe  SHA1 online'" sap:VirtualizedContainerService.HintSize="434,887" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a06375d6762c7bd3e0b0584d2d9252cc" Selector="&lt;html app='msedge.exe' title='SHA1 online' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,887" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,741" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -106,7 +105,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into SHA1 message" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_Msg]">
               <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c262e05e-9495-4a08-b727-b84fb74b3d3a" InformativeScreenshot="588bceef11961f6a8bf818fbdb43924d" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c262e05e-9495-4a08-b727-b84fb74b3d3a" InformativeScreenshot="d3e7de6d24d10d8829cada02a471bcb3" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -128,7 +127,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6bcf0886-2e80-4c85-af6b-d8b25e5f76b9" InformativeScreenshot="0c22bc5b8a1fe626fca1995330f74dd9" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6bcf0886-2e80-4c85-af6b-d8b25e5f76b9" InformativeScreenshot="99f321b02e68642e65c73035becda127" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -140,7 +139,7 @@
             </ui:Click>
             <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get generated hash code and save it to output argument: out_HashCode." DisplayName="Get Text 'hash code'" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a11dcad4-700f-46aa-ab93-20b6a148cbf6" InformativeScreenshot="ed604588f46d0171011ffa6ae7878454" Selector="&lt;webctrl tag='SPAN' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a11dcad4-700f-46aa-ab93-20b6a148cbf6" InformativeScreenshot="f07081962e6c341585a4bb44d3c9e85f" Selector="&lt;webctrl tag='SPAN' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -166,28 +165,6 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:GoBack>
             <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Continue to confirm it's ok to refresh browser" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
-              <ui:Click.CursorPosition>
-                <ui:CursorPosition Position="Center">
-                  <ui:CursorPosition.OffsetX>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetX>
-                  <ui:CursorPosition.OffsetY>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetY>
-                </ui:CursorPosition>
-              </ui:Click.CursorPosition>
-              <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7f8f2c93-2acc-41bd-81a3-8d59e730c28e" InformativeScreenshot="c9185b3ce3f2563582f595945e522f7f" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='SHA1 online - Google Chrome' /&gt;&lt;ctrl name='Confirm Form Resubmission' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:Click.Target>
-            </ui:Click>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
